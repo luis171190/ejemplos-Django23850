@@ -8,11 +8,34 @@
 </head>
 <body>
    
+    <p>Hoy es un gran dia: {{fecha}} </p>
+
+
     <h1>Nico---------------</h1>
 
     <h2>Perez</h2>
 
     <p>Que gran profesor que me toco :(.... En otro curso, en esto no :(</p>
+
+    <h2>El mejor estudiante es: {{nombre}} </h2>
+
+    <h2>Su nota es: {{nota}} </h2>
+
+    <h1>Simpaticos:</h1> <br>
+
+    {% for estu in estudiantes %}
+
+        {% if estu == 'Nadia'%}
+
+            <p style="color: blue;">{{estu}} </p>
+
+        {% else %}
+            <p>{{estu}} </p>
+        
+        {% endif %}
+
+    {% endfor %}
+
 
 
 </body>
