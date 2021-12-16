@@ -6,9 +6,23 @@ class Curso(models.Model):
     
     nombre = models.CharField(max_length=40)
     camada = models.IntegerField()
+    esNoche= models.BooleanField(null=True)
     
-class Jugador(models.Model):
+    def __str__(self):
+        return f"Curso: {self.nombre} Camada: {self.camada} Noche: {self.esNoche}"
+    
+class Jugadores(models.Model):
     
     apellido = models.CharField(max_length=40)
     numero = models.IntegerField()
     esBueno = models.BooleanField()
+    
+class Equipo(models.Model):
+    
+    nombre= models.CharField(max_length=40)
+    ciudad= models.CharField(max_length=40)
+    
+class Estadio(models.Model):
+    
+    direccion = models.CharField(max_length=40)
+    anioFund = models.IntegerField()
