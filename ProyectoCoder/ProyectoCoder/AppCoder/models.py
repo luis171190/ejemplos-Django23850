@@ -1,5 +1,8 @@
 from django.db import models
 
+from django.contrib.auth.models import User
+from django.db.models.fields.files import ImageField
+
 # Create your models here.
 
 class Curso(models.Model):
@@ -11,11 +14,15 @@ class Curso(models.Model):
     def __str__(self):
         return f"Curso: {self.nombre} Camada: {self.camada} Noche: {self.esNoche}"
     
-class Jugadores(models.Model):
+class Jugador(models.Model):
     
     apellido = models.CharField(max_length=40)
     numero = models.IntegerField()
     esBueno = models.BooleanField()
+    
+    def __str__(self):
+        
+        return f" {self.apellido}, {self.numero}, {self.esBueno} "
     
 class Equipo(models.Model):
     
@@ -26,3 +33,19 @@ class Estadio(models.Model):
     
     direccion = models.CharField(max_length=40)
     anioFund = models.IntegerField()
+    
+
+class Empleado(models.Model):
+    
+    nombre = models.CharField(max_length=40)
+    apellido = models.CharField(max_length=40)
+    dni = models.IntegerField()
+    profesional = models.BooleanField()
+    fechaDeNacimiento = models.DateField()
+    
+    def __str__(self):
+        return f"Nombre y Apellido: {self.nombre} {self.apellido} ---- DNI: {self.dni} ----"
+    
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='avatares', null=True, blank = True)

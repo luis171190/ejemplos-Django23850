@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {% load static %}
 
+        {% load static %}
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Stylish Portfolio - Start Bootstrap Template</title>
+        <title>Proyecto CODER 23850</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -19,11 +19,12 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'AppCoder/css/styles.css' %}" rel="stylesheet" />
+
+
     </head>
+
+
     <body id="page-top">
-
-
-
         <!-- Navigation-->
         <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
         <nav id="sidebar-wrapper">
@@ -34,27 +35,45 @@
                 <li class="sidebar-nav-item"><a href="">Profesores</a></li>
                 <li class="sidebar-nav-item"><a href="">Estudiantes</a></li>
                 <li class="sidebar-nav-item"><a href="">Entregables</a></li>
+
+                {% if not request.user.is_authenticated %}
+                <li class="sidebar-nav-item"><a href="{% url 'Login' %}">HACER LOGIN</a></li>
+                {% endif %}
+
+
+                {% if  request.user.is_authenticated %}
+                <li class="sidebar-nav-item"><a href="">Hola, {{user.username}}</a></li>
+                {% endif %}
+
+               
+
+
+
             </ul>
         </nav>
         <!-- Header-->
+
         <header class="masthead d-flex align-items-center">
             <div class="container px-4 px-lg-5 text-center">
                 
-
                 {% block contenido2 %}
-                {% endblock %}
-                
-                <h3 class="mb-5"><em>A Free Bootstrap Theme by Start Bootstrap</em></h3>
-                <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+                {% endblock %} 
+
+                <h3 class="mb-5"><em>Curso Python - 23850 - Muy buenos estudiantes (algunos)</em></h3>
+               
             </div>
         </header>
         <!-- About-->
 
-        <!-- Parte Dinamica-->
-
+        <!--Parte dinamoica-->
         {% block contenido %}
-        {% endblock %}               
-        
+        {% endblock %}  
+
+ 
+
+
+
+
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container px-4 px-lg-5">
@@ -66,10 +85,10 @@
                         <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
+                        <a class="social-link rounded-circle text-white" href="https://github.com/NicolasPerezUNLaSMN/ejemplosDjango23850"><i class="icon-social-github"></i></a>
                     </li>
                 </ul>
-                <p class="text-muted small mb-0">Copyright &copy; Your Website 2021</p>
+                <p class="text-muted small mb-0">Copyright &copy; CODERHOUSE 2021</p>
             </div>
         </footer>
         <!-- Scroll to Top Button-->

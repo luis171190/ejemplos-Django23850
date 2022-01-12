@@ -4,14 +4,18 @@
 
         {% block contenido2 %}
 
-            <h1 class="mb-1">Inicioooooo!!!!!</h1>
+            <h1 class="mb-1">INICIO!!!!!!!!!!!!!!!!!!!!</h1>
+        {% if  request.user.is_authenticated %}
+            <img src="{{ avatar }}" alt="">
+        {% endif %}
 
         {% endblock %}
 
         {% block contenido %}
 
-            <h1> Titulo del inicio </h1>
+            <h3> {{ mensaje }}</h3>
+            <h1>Titulo del inicio :)</h1>
 
-            <p>Este es el parrafo el inicio</p>
+            <p>Este es el parrafo el inicio</p> 
 
         {% endblock %}
